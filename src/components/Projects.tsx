@@ -1,8 +1,8 @@
 import { ExternalLink, Github } from "lucide-react";
-import portfolioImg from "/src/assets/images/portfolio.png";
-import skyraaImg from "/src/assets/images/skyraa.png";
-import nikeImg from "/src/assets/images/nike.jpg";
-import codeCraftersImg from "/src/assets/images/web page.png";
+import portfolioImg from "../src/assets/images/portfolio.png";
+import skyraaImg from "../src/assets/images/skyraa.png";
+import nikeImg from "../src/assets/images/nike.jpg";
+import codeCraftersImg from "../src/assets/images/web page.png";
 
 
 const projects = [

@@ -12,7 +12,7 @@ const Projects = () => {
       technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
       liveUrl: "#",
       githubUrl: "#",
-      image: "/src/assets/images/portfolio.png",
+      image: "/premium-portfolio-main/src/assets/images/portfolio.png",
     },
 
     {
@@ -30,7 +30,7 @@ const Projects = () => {
       ],
       liveUrl: "https://skyraaglobalexports.netlify.app",
       githubUrl: "#",
-      image: "/src/assets/images/skyraa.png",
+      image: "/premium-portfolio-main/src/assets/images/skyraa.png",
     },
 
     {
@@ -43,7 +43,7 @@ const Projects = () => {
       technologies: ["HTML", "CSS","Bootstrap", "JavaScript"],
       liveUrl: "#",
       githubUrl: "#",
-      image: "src/assets/images/nike.jpg"
+      image: "/premium-portfolio-main/src/assets/images/nike.jpg"
     },
    
     {
@@ -62,7 +62,7 @@ const Projects = () => {
   ],
   liveUrl: "#", // add your deployed link later
   githubUrl: "#", // add your GitHub repo link
-  image: "/src/assets/images/web page.png",
+  image: "/premium-portfolio-main/src/assets/images/web page.png",
 }
 ,
     

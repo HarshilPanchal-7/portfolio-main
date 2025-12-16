@@ -4,7 +4,6 @@ import skyraaImg from "../src/assets/images/skyraa.png";
 import nikeImg from "../src/assets/images/nike.jpg";
 import codeCraftersImg from "../src/assets/images/web page.png";
 
-
 const projects = [
   {
     title: "Personal Portfolio Website",
@@ -16,7 +15,7 @@ const projects = [
     technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/src/assets/images/portfolio.png,
+    image: portfolioImg,
   },
 
   {
@@ -29,7 +28,7 @@ const projects = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
     liveUrl: "https://skyraaglobalexports.netlify.app",
     githubUrl: "#",
-    image: "/src/assets/images/skyraa.png,
+    image: skyraaImg,
   },
 
   {
@@ -42,7 +41,7 @@ const projects = [
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/src/assets/images/nike.jpg,
+    image: nikeImg,
   },
 
   {
@@ -55,9 +54,10 @@ const projects = [
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/src/assets/images/web page.png,
+    image: web pageImg,
   },
 ];
+
 
     
   ];

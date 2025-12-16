@@ -5,16 +5,7 @@ import skyraaImg from "../assets/images/skyraa.png";
 import nikeImg from "../assets/images/nike.jpg";
 import codeCraftersImg from "../assets/images/web-page.png";
 
-type Project = {
-  title: string;
-  shortDescription: string[];
-  technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
-  image: string;
-};
-
-const projects: Project[] = [
+const projects = [
   {
     title: "Personal Portfolio Website",
     shortDescription: [
@@ -23,7 +14,8 @@ const projects: Project[] = [
       "Smooth animations and modern UI/UX",
     ],
     technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
-    liveUrl: "https://harshilportfolio7.netlify.app/",
+    liveUrl: "#",
+    githubUrl: "#",
     image: portfolioImg,
   },
   {
@@ -35,6 +27,7 @@ const projects: Project[] = [
     ],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
     liveUrl: "https://skyraaglobalexports.netlify.app",
+    githubUrl: "#",
     image: skyraaImg,
   },
   {
@@ -46,6 +39,7 @@ const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     liveUrl: "#",
+    githubUrl: "#",
     image: nikeImg,
   },
   {
@@ -57,15 +51,15 @@ const projects: Project[] = [
     ],
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
+    githubUrl: "#",
     image: codeCraftersImg,
   },
 ];
 
-const Projects = (): JSX.Element => {
+const Projects = () => {
   return (
     <section id="projects" className="py-16 md:py-24 relative">
       <div className="container mx-auto px-6">
-        {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Featured{" "}
@@ -78,79 +72,86 @@ const Projects = (): JSX.Element => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden group border border-gray-800 hover:border-blue-500/50 transition-all flex flex-col"
+              className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden group hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500 border border-gray-800 hover:border-blue-500/50 flex flex-col"
             >
-              {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} preview`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
 
-                {/* Overlay links */}
-                <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.githubUrl}
+                    aria-label={`View ${project.title} on GitHub`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-gray-900/80 rounded-lg hover:bg-blue-500"
+                    className="p-2 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 transition-colors"
                   >
                     <Github className="w-4 h-4" />
                   </a>
+
                   <a
                     href={project.liveUrl}
+                    aria-label={`View ${project.title} live demo`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-gray-900/80 rounded-lg hover:bg-blue-500"
+                    className="p-2 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold mb-3 group-hover:text-blue-400">
+                <h3 className="text-lg font-semibold mb-3 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
 
-                <ul className="text-sm text-gray-400 space-y-2 mb-4 flex-grow">
+                <ul className="text-sm text-gray-400 mb-4 space-y-2 flex-grow">
                   {project.shortDescription.map((line, idx) => (
-                    <li key={idx} className="flex gap-2">
-                      <span className="text-blue-500">•</span>
-                      <span>{line}</span>
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-blue-500 mt-0.5">•</span>
+                      <span className="leading-relaxed">{line}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700"
+                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">
                       +{project.technologies.length - 3}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Bottom gradient */}
-              <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </article>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300"
+          >
+            <Github className="w-5 h-5" />
+            View All Projects on GitHub
+          </a>
         </div>
       </div>
     </section>

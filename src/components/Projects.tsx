@@ -1,70 +1,60 @@
 import { ExternalLink, Github } from "lucide-react";
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "Personal Portfolio Website",
-      shortDescription: [
-        "Premium responsive design with glassmorphism effects",
-        "ATS-optimized semantic HTML structure",
-        "Smooth animations and modern UI/UX"
-      ],
-      technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
-      liveUrl: "#",
-      githubUrl: "#",
-      image: "/premium-portfolio-main/src/assets/images/portfolio.png",
-    },
 
-    {
-      title: "Skyraa Global Export",
-      shortDescription: [
-        "Export of premium Indian spices, masala, and agricultural products",
-        "Direct sourcing from Indian farms with export-grade quality control",
-        "Global distribution of spices, oilseeds, pulses, and herbs"
-      ],
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Netlify"
-      ],
-      liveUrl: "https://skyraaglobalexports.netlify.app",
-      githubUrl: "#",
-      image: "/premium-portfolio-main/src/assets/images/skyraa.png",
-    },
+const projects = [
+  {
+    title: "Personal Portfolio Website",
+    shortDescription: [
+      "Premium responsive design with glassmorphism effects",
+      "ATS-optimized semantic HTML structure",
+      "Smooth animations and modern UI/UX"
+    ],
+    technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
+    liveUrl: "#",
+    githubUrl: "#",
+    image: "/public/images/portfolio.png
+  },
 
-    {
-      title: "Nike-Inspired Sneakers Website",
-      shortDescription: [
-        "Static sneaker showcase website",
-        "Nike-inspired UI and layout design",
-        "Built from scratch as a first personal project"
-      ],
-      technologies: ["HTML", "CSS","Bootstrap", "JavaScript"],
-      liveUrl: "#",
-      githubUrl: "#",
-      image: "/premium-portfolio-main/src/assets/images/nike.jpg"
-    },
-   
-    {
-  title: "Code Crafters – Personal Portfolio",
-  shortDescription: [
-    "Single-page personal portfolio website",
-    "Clean and modern UI with purple theme",
-    "Responsive layout with smooth navigation"
-  ],
-  technologies: [
-  
-    "TypeScript",
-    "HTML",
-    "CSS",
-    "Single Page Design"
-  ],
-  liveUrl: "#", // add your deployed link later
-  githubUrl: "#", // add your GitHub repo link
-  image: "/premium-portfolio-main/src/assets/images/web page.png",
-}
-,
+  {
+    title: "Skyraa Global Export",
+    shortDescription: [
+      "Export of premium Indian spices, masala, and agricultural products",
+      "Direct sourcing from Indian farms with export-grade quality control",
+      "Global distribution of spices, oilseeds, pulses, and herbs"
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
+    liveUrl: "https://skyraaglobalexports.netlify.app",
+    githubUrl: "#",
+    image: "/public/images/skyraa.png,
+  },
+
+  {
+    title: "Nike-Inspired Sneakers Website",
+    shortDescription: [
+      "Static sneaker showcase website",
+      "Nike-inspired UI and layout design",
+      "Built from scratch as a first personal project"
+    ],
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    liveUrl: "#",
+    githubUrl: "#",
+    image: "/public/images/nike.jpg,
+  },
+
+  {
+    title: "Code Crafters – Personal Portfolio",
+    shortDescription: [
+      "Single-page personal portfolio website",
+      "Clean and modern UI with purple theme",
+      "Responsive layout with smooth navigation"
+    ],
+    technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
+    liveUrl: "#",
+    githubUrl: "#",
+    image: "/public/images/web page.png,
+  },
+];
+
     
   ];
 

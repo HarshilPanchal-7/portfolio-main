@@ -1,8 +1,10 @@
 import { ExternalLink, Github } from "lucide-react";
-import portfolioImg from "../src/assets/images/portfolio.png";
-import skyraaImg from "../src/assets/images/skyraa.png";
-import nikeImg from "../src/assets/images/nike.jpg";
-import codeCraftersImg from "../src/assets/images/web page.png";
+
+import portfolioImg from "../assets/images/portfolio.png";
+import skyraaImg from "../assets/images/skyraa.png";
+import nikeImg from "../assets/images/nike.jpg";
+import codeCraftersImg from "../assets/images/web page.png";
+
 
 const projects = [
   {
@@ -54,7 +56,7 @@ const projects = [
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
     githubUrl: "#",
-    image: web pageImg,
+    image: codeCraftersImg,
   },
 ];
 

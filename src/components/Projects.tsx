@@ -5,17 +5,25 @@ import skyraaImg from "../assets/images/skyraa.png";
 import nikeImg from "../assets/images/nike.jpg";
 import codeCraftersImg from "../assets/images/web-page.png";
 
-const projects = [
+type Project = {
+  title: string;
+  shortDescription: string[];
+  technologies: string[];
+  liveUrl: string;
+  githubUrl: string;
+  image: string;
+};
+
+const projects: Project[] = [
   {
     title: "Personal Portfolio Website",
     shortDescription: [
       "Premium responsive design with glassmorphism effects",
       "ATS-optimized semantic HTML structure",
-      "Smooth animations and modern UI/UX"
+      "Smooth animations and modern UI/UX",
     ],
     technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://harshilportfolio7.netlify.app/",
     image: portfolioImg,
   },
   {
@@ -23,11 +31,10 @@ const projects = [
     shortDescription: [
       "Export of premium Indian spices, masala, and agricultural products",
       "Direct sourcing from Indian farms with export-grade quality control",
-      "Global distribution of spices, oilseeds, pulses, and herbs"
+      "Global distribution of spices, oilseeds, pulses, and herbs",
     ],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
     liveUrl: "https://skyraaglobalexports.netlify.app",
-    githubUrl: "#",
     image: skyraaImg,
   },
   {
@@ -35,11 +42,10 @@ const projects = [
     shortDescription: [
       "Static sneaker showcase website",
       "Nike-inspired UI and layout design",
-      "Built from scratch as a first personal project"
+      "Built from scratch as a first personal project",
     ],
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     liveUrl: "#",
-    githubUrl: "#",
     image: nikeImg,
   },
   {
@@ -47,27 +53,102 @@ const projects = [
     shortDescription: [
       "Single-page personal portfolio website",
       "Clean and modern UI with purple theme",
-      "Responsive layout with smooth navigation"
+      "Responsive layout with smooth navigation",
     ],
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
-    githubUrl: "#",
     image: codeCraftersImg,
   },
 ];
 
-const Projects = () => {
+const Projects = (): JSX.Element => {
   return (
     <section id="projects" className="py-16 md:py-24 relative">
       <div className="container mx-auto px-6">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Featured{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              Projects
+            </span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            A showcase of my recent work and technical expertise
+          </p>
+        </div>
+
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projects.map((project) => (
-            <article key={project.title} className="bg-gray-900 rounded-xl overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+            <article
+              key={project.title}
+              className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden group border border-gray-800 hover:border-blue-500/50 transition-all flex flex-col"
+            >
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+
+                {/* Overlay links */}
+                <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-gray-900/80 rounded-lg hover:bg-blue-500"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-gray-900/80 rounded-lg hover:bg-blue-500"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold mb-3 group-hover:text-blue-400">
+                  {project.title}
+                </h3>
+
+                <ul className="text-sm text-gray-400 space-y-2 mb-4 flex-grow">
+                  {project.shortDescription.map((line, idx) => (
+                    <li key={idx} className="flex gap-2">
+                      <span className="text-blue-500">•</span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Bottom gradient */}
+              <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
             </article>
           ))}
         </div>

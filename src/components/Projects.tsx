@@ -16,7 +16,7 @@ const projects = [
     technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/public/images/portfolio.png
+    image: "/src/assets/images/portfolio.png,
   },
 
   {
@@ -29,7 +29,7 @@ const projects = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
     liveUrl: "https://skyraaglobalexports.netlify.app",
     githubUrl: "#",
-    image: "/public/images/skyraa.png,
+    image: "/src/assets/images/skyraa.png,
   },
 
   {
@@ -42,7 +42,7 @@ const projects = [
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/public/images/nike.jpg,
+    image: "/src/assets/images/nike.jpg,
   },
 
   {
@@ -55,7 +55,7 @@ const projects = [
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
     githubUrl: "#",
-    image: "/public/images/web page.png,
+    image: "/src/assets/images/web page.png,
   },
 ];
 

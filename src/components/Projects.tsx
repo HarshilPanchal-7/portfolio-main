@@ -14,8 +14,7 @@ const projects = [
       "Smooth animations and modern UI/UX",
     ],
     technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://harshilportfolio7.netlify.app/",
     image: portfolioImg,
   },
   {
@@ -27,7 +26,6 @@ const projects = [
     ],
     technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
     liveUrl: "https://skyraaglobalexports.netlify.app",
-    githubUrl: "#",
     image: skyraaImg,
   },
   {
@@ -39,7 +37,6 @@ const projects = [
     ],
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     liveUrl: "#",
-    githubUrl: "#",
     image: nikeImg,
   },
   {
@@ -51,7 +48,6 @@ const projects = [
     ],
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
-    githubUrl: "#",
     image: codeCraftersImg,
   },
 ];

@@ -3,7 +3,7 @@ import { ExternalLink, Github } from "lucide-react";
 import portfolioImg from "../assets/images/portfolio.png";
 import skyraaImg from "../assets/images/skyraa.png";
 import nikeImg from "../assets/images/nike.jpg";
-import codeCraftersImg from "../assets/images/web page.png";
+import codeCraftersImg from "../assets/images/web-page.png";
 
 
 const projects = [
@@ -56,7 +56,7 @@ const projects = [
     technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
     liveUrl: "#",
     githubUrl: "#",
-    image: codeCraftersImg,
+    image: web-pageImg,
   },
 ];
 

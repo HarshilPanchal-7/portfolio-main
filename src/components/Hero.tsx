@@ -44,9 +44,9 @@ const Hero: React.FC = () => {
 
             {/* Description */}
             <p className="text-base text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
-              I craft beautiful, responsive web experiences with modern technologies. 
-              Specializing in React, TypeScript, and creating pixel-perfect user interfaces 
-              that users love.
+           I design and build high-quality, responsive web applications using modern technologies.
+              With a strong focus on React and TypeScript, I create pixel-perfect, user-centric interfaces
+              that deliver seamless and engaging experiences.
             </p>
 
             {/* CTA Buttons */}

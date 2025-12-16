@@ -2,7 +2,7 @@ import { Briefcase, GraduationCap, Code2, Award, Zap, Users, TrendingUp } from "
 
 const About = () => {
   const stats = [
-    { icon: Briefcase, label: "Projects", value: "15+", color: "text-blue-500" },
+    { icon: Briefcase, label: "Projects", value: "5+", color: "text-blue-500" },
     { icon: Award, label: "Internships", value: "2", color: "text-purple-500" },
     { icon: Code2, label: "Technologies", value: "10+", color: "text-pink-500" },
     { icon: TrendingUp, label: "Experience", value: "4 Mo", color: "text-green-500" },

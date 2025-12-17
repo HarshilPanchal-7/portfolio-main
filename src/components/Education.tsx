@@ -37,7 +37,7 @@ const Education = () => {
     },
     {
       level: "Bachelor's Degree",
-      degree: "B.Tech in IT(Information Technology)",
+      degree: "B.Tech in IT ( Information Technology )",
       institution: "ASOIT, Ahmedabad",
       duration: "2024 – Present | 4th Semester",
       description: "Undergraduate IT student focused on automation, AI-driven systems, software development, and real-world problem solving.",

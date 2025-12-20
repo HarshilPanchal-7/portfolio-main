@@ -1,154 +1,189 @@
-import { ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-import portfolioImg from "../assets/images/portfolio.png";
-import skyraaImg from "../assets/images/skyraa.png";
-import nikeImg from "../assets/images/nike.jpg";
-import codeCraftersImg from "../assets/images/web-page.png";
+import portfolioImg from "@/assets/projects/portfolio.png";
+import skyraaImg from "@/assets/projects/skyraa.png";
+import nikeImg from "@/assets/projects/nike.jpg";
+import codecraftersImg from "@/assets/projects/codecrafters.png";
 
 const projects = [
   {
     title: "Personal Portfolio Website",
-    shortDescription: [
-      "Premium responsive design with glassmorphism effects",
-      "ATS-optimized semantic HTML structure",
-      "Smooth animations and modern UI/UX",
-    ],
-    technologies: ["React.js", "CSS", "JavaScript", "Bootstrap", "HTML"],
-    liveUrl: "https://harshilportfolio7.netlify.app/",
+    description: "Premium responsive design with glassmorphism effects, ATS-optimized semantic HTML structure, and smooth animations with modern UI/UX.",
     image: portfolioImg,
+    tech: ["React.js", "CSS", "JavaScript", "Framer Motion"],
+    liveUrl: "https://harshilportfolio7.netlify.app/",
+    githubUrl: "https://github.com/HarshilPanchal-7",
+    featured: true,
   },
   {
     title: "Skyraa Global Export",
-    shortDescription: [
-      "Export of premium Indian spices, masala, and agricultural products",
-      "Direct sourcing from Indian farms with export-grade quality control",
-      "Global distribution of spices, oilseeds, pulses, and herbs",
-    ],
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Netlify"],
-    liveUrl: "https://skyraaglobalexports.netlify.app",
+    description: "Export of premium Indian spices, masala, and agricultural products with direct sourcing from Indian farms and export-grade quality control.",
     image: skyraaImg,
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    liveUrl: "https://skyraaglobalexports.netlify.app/",
+    githubUrl: "https://github.com/HarshilPanchal-7",
+    featured: true,
   },
   {
     title: "Nike-Inspired Sneakers Website",
-    shortDescription: [
-      "Static sneaker showcase website",
-      "Nike-inspired UI and layout design",
-      "Built from scratch as a first personal project",
-    ],
-    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
-    liveUrl: "#",
+    description: "Static sneaker showcase website with Nike-inspired UI and layout design. Built from scratch as a first personal project.",
     image: nikeImg,
+    tech: ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/HarshilPanchal-7",
+    featured: false,
   },
   {
     title: "Code Crafters – Personal Portfolio",
-    shortDescription: [
-      "Single-page personal portfolio website",
-      "Clean and modern UI with purple theme",
-      "Responsive layout with smooth navigation",
-    ],
-    technologies: ["TypeScript", "HTML", "CSS", "Single Page Design"],
+    description: "Single-page personal portfolio website with clean and modern UI featuring a purple theme and responsive layout with smooth navigation.",
+    image: codecraftersImg,
+    tech: ["TypeScript", "HTML", "CSS", "React"],
     liveUrl: "#",
-    image: codeCraftersImg,
+    githubUrl: "https://github.com/HarshilPanchal-7",
+    featured: false,
   },
 ];
 
 const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="projects" className="py-16 md:py-24 relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Projects
-            </span>
+    <section id="projects" className="relative py-32 overflow-hidden">
+      {/* Background effects */}
+      <div className="section-glow top-1/4 -left-40" />
+      <div className="section-glow bottom-1/4 -right-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(220_15%_18%/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(220_15%_18%/0.05)_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A showcase of my recent work and technical expertise
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {projects.map((project) => (
-            <article
+        {/* Projects Grid */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
               key={project.title}
-              className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden group hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500 border border-gray-800 hover:border-blue-500/50 flex flex-col"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`project-card group ${project.featured ? 'lg:col-span-1' : ''}`}
             >
-              <div className="relative h-48 overflow-hidden">
+              {/* Image Container */}
+              <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={`${project.title} preview`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-
-                <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.githubUrl}
-                    aria-label={`View ${project.title} on GitHub`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                
+                {/* Quick Actions */}
+                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <a
                     href={project.liveUrl}
-                    aria-label={`View ${project.title} live demo`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-gray-900/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 transition-colors"
+                    className="p-3 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
                 </div>
+
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-primary text-primary-foreground">
+                      Featured
+                    </span>
+                  </div>
+                )}
               </div>
 
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold mb-3 group-hover:text-blue-400 transition-colors">
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
 
-                <ul className="text-sm text-gray-400 mb-4 space-y-2 flex-grow">
-                  {project.shortDescription.map((line, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-0.5">•</span>
-                      <span className="leading-relaxed">{line}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.technologies.slice(0, 3).map((tech) => (
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700"
+                      className="text-xs px-3 py-1 rounded-full bg-secondary text-muted-foreground border border-border"
                     >
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3 pt-2">
+                  <Button variant="glass" size="sm" asChild className="flex-1">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild className="flex-1">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4" />
+                      Source
+                    </a>
+                  </Button>
                 </div>
               </div>
-
-              <div className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </article>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300"
-          >
-            <Github className="w-5 h-5" />
-            View All Projects on GitHub
-          </a>
-        </div>
+        {/* View All Projects CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Button variant="heroOutline" size="lg" asChild>
+            <a
+              href="https://github.com/HarshilPanchal-7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All Projects on GitHub
+              <ArrowUpRight className="w-5 h-5" />
+            </a>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
